@@ -1,0 +1,55 @@
+/* Background */
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ background-image: url("../images/background.jpg");
+}
+
+/* Glassy Card Container */
+.container2 {
+  margin-top: 150px;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+   backdrop-filter: blur(1.5px); /* optional: blur inside input */
+  -webkit-backdrop-filter: blur(1.5px);
+
+}
+
+/* Form Inputs */
+.container input {
+padding: 5px;
+margin: 8px 0;
+font-size: 1rem;
+
+}
+
+
+/* Button */
+.container button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container button:hover {
+  background-color: #ddd;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}

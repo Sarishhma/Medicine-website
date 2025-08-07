@@ -1,0 +1,21 @@
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+
+.log-out {
+    padding: 10px 20px;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    margin-bottom: 20px;
+    color: rgb(198, 198, 233);
+
+}
+
+.log-out:hover {
+    background-color: blue;
+    color: white;
+}

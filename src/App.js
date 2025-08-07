@@ -1,30 +1,46 @@
-import Todo from "./MyComponent/Todo";
-import './App.css';
-import Add from "./MyComponent/Add";
+import "./App.css";
+import React, { useState } from "react";
+import Login from "./MyComponent/Login";
+
+import { products } from "./MyComponent/Data";
+import ProductSection from "./MyComponent/ProductSection";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./MyComponent/HomePage";
+import Register from "./MyComponent/Register";
 
 function App() {
-  let todo = [
-    {
-      sno:1,
-      Title:"bath",
-      desc:"have to go take a bath",
-    },
-   {
-      sno:2,
-      Title:"eat",
-      desc:"have to go eat",
-   },
-   {
-      sno:3,
-      Title:"sleep",
-      desc:"have to go sleep",
-   }
-  ]
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+
+  const handleLoginSuccess = (id) => {
+    setUserId(id);
+  };
+
+  const title = "Featured Products";
   return (
-   <>
-   <Todo todo={todo}/>
-   <Add add={add}/>
-   </>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {!userId ? (
+            <Route
+              path="login/"
+              element={<Login onLoginSuccess={handleLoginSuccess} />}
+            />
+          ) : (
+            <Route
+              path="/productSection"
+              element={<ProductSection title={title} products={products} />}
+            />
+          )}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
