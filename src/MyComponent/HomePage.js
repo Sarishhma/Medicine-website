@@ -1,33 +1,65 @@
+// HomePage.jsx
 import React from "react";
-import "../css/Home.css";
-import { Link,useNavigate } from "react-router-dom";
+import Silk from "./Silk";
+import CardNav from "./CardNav";
 
+export default function HomePage() {
+  const items = [
+    {
+      label: "Login",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [{ label: "Login", ariaLabel: "About Company", href: "/login" }],
+    },
+    {
+      label: "Home page",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [{ label: "Home", ariaLabel: "About Company", href: "/" }],
+    },
+    {
+      label: "Register",
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Register", ariaLabel: "About Careers", href: "/register" },
+      ],
+    },
+    {
+      label: "Contact",
+      bgColor: "#271E37",
+      textColor: "#fff",
+      links: [
+        { label: "Email", ariaLabel: "Email us", href: "#" },
+        { label: "Twitter", ariaLabel: "Twitter", href: "#" },
+        { label: "LinkedIn", ariaLabel: "LinkedIn", href: "#" },
+      ],
+    },
+  ];
 
-
-const HomePage = () => {
   return (
-    <div className="container">
-      <nav className="navbar">
-        <div className="nav-brand">Health Pharmacy</div>
-        <ul className="nav-links">
-          <li>
-            <Link to="/about">About us</Link>
-          </li>
-          <li>
-            <Link to="/login">Log-in</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact us</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-        </ul>
-      </nav>
+    <>
+ 
+      <CardNav
+        items={items}
+        baseColor="#fff"
+        menuColor="#000"
+        buttonBgColor="#111"
+        buttonTextColor="#fff"
+        ease="power3.out"
+      />
 
-     
-    </div>
+      <div className="silk-bg">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#e7e2ecff"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
+      </div>
+
+    
+    </>
   );
-};
-
-export default HomePage;
+}

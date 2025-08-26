@@ -2,7 +2,7 @@
 
 .product-section {
   padding: 60px 20px;
-  background: linear-gradient(to bottom right, #f0f2f5, #ffffff);
+  
   min-height: 100vh;
 }
 
@@ -98,4 +98,39 @@ background: linear-gradient(90deg, #00c9ff, #92fe9d);
   font-weight: bold;
   font-size: 1.3rem;
   color: #ffd700;
+}
+.Rinput-container input{
+  padding: 10px;
+  border-radius: 10px;
+   width: 400px;
+
+}
+.Rinput-container{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 55px;
+ 
+}
+.cart{
+  padding: 10px 20px;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    margin-bottom: 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgb(221, 221, 221);
+    height: 20px;
+    width: 45px;
+}
+.cart:hover{
+  background-color:blue;
+  cursor: pointer;
+}
+.top-bar{
+  flex-direction: column;
+  display: flex;
+  justify-content: end;
 }

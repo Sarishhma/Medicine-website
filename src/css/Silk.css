@@ -1,0 +1,31 @@
+/* Make the viewport truly edge-to-edge */
+html, body, #root {
+  height: 100%;
+  margin: 0;            /* remove the default 8px body margin */
+}
+
+/* Fullscreen, behind everything */
+ .silk-bg {
+  position:fixed;
+  inset: 0;           
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; 
+  background-color: white;
+    pointer-events: none;
+           
+}
+
+
+.silk-bg > canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;      
+} 
+
+
+/* Optional: if you had a Bootstrap .container on the page,
+   make sure it doesn't control the background width */
+.container { max-width: none; }  /* or simply avoid .container for the bg */

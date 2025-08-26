@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  '../css/login.css'
+import ElectricBorder from './ElectricBorder'
+import Silk from "./Silk";
 export default function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +38,7 @@ export default function Login({ onLoginSuccess }) {
       localStorage.setItem('userId', data.user_id);
        if (onLoginSuccess) onLoginSuccess(data.user_id);
 
-      navigate('/productSection'); 
+     navigate('/productSection');
 
     } catch (err) {
       setError(err.message);
@@ -47,34 +49,60 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
+   
+      {/* Silk background - positioned absolutely behind everything */}
+      <div className="silk-bg">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#1e1d1eff"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
+      </div>
 
+ <div className="login-content">
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {token && <p style={{ color: 'green' }}>Logged in!</p>}
       <form onSubmit={handleSubmit}>
-        <div className="container2">
-                <h2>Login</h2>
-          <input
-            type="text"
-            value={username}
-            placeholder="Enter your username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br />
+         
 
-          <input
-            type="password"
-            value={password}
-            placeholder="Enter your password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
 
-          <button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Submit'}
-          </button>
-        </div>
+<ElectricBorder
+  color="#472fe7ff"
+  speed={1}
+  chaos={0.5}
+  thickness={2}
+  style={{ 
+    borderRadius: 16,
+   
+  }}
+>
+  <div className="login-container2" style={{ pointerEvents: 'auto' }}>
+    <h2>Login</h2>
+    <input
+      type="text"
+      value={username}
+      placeholder="Enter your username"
+      onChange={(e) => setUsername(e.target.value)}
+    />
+    <input
+      type="password"
+      value={password}
+      placeholder="Enter your password"
+      onChange={(e) => setPassword(e.target.value)}
+    />
+    <button type="submit" disabled={loading}>
+      {loading ? 'Logging in...' : 'Submit'}
+    </button>
+  </div>
+</ElectricBorder>
+
+
+
       </form>
+    </div>
     </div>
   );
 }
